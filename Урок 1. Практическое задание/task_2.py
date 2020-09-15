@@ -17,3 +17,23 @@
 Алгоритмизатор должен развивать мышление, а это прежде всего практика.
 А без столкновения со сложностями его не развить.
 """
+lst = [5, 12, 60, 80, 120, 4, 3, 2, 1]
+
+
+# 1 O(n^2) - квадратичная (не придумал как сделать. взял отсюда https://webdevblog.ru/algoritmy-sortirovki-v-python/ )
+def minimun_lst1(lst):
+    for i in range(len(lst)):
+        # Мы предполагаем, что первый элемент несортированного сегмента является наименьшим
+        lowest_value_index = i
+        # Этот цикл перебирает несортированные элементы
+        for j in range(i + 1, len(lst)):
+            if lst[j] < lst[lowest_value_index]:
+                lowest_value_index = j
+        # Поменять местами значения самого низкого несортированного элемента с первым несортированным
+        lst[i], lst[lowest_value_index] = lst[lowest_value_index], lst[i]
+    return lst[0]
+
+
+# 2 O(n) - линейная
+def minimun_lst2(lst):
+    return min(lst)
