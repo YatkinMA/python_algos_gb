@@ -22,3 +22,13 @@
 Реализуйте поиск трех компаний с наибольшей годовой прибылью.
 Выведите результат.
 """
+company = {'lkoh': 250000, 'gazp': 20000, 'rosn': 17000, 'rdsa': 50000}
+
+# 1 Сложность: O(2n)
+
+res_company = []
+
+for i in sorted(company.items(), key=lambda kv: (kv[1], kv[0]), reverse=True):
+    # O(n) для for i in ..., O(n) для lambda
+    res_company.append(i)
+print(res_company[:3])
